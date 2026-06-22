@@ -24,6 +24,7 @@ permission:
     "ls *": "allow"
     "cat *": "allow"
     "head *": "allow"
+    "head": "allow"
     "tail *": "allow"
     "wc *": "allow"
     "file *": "allow"
@@ -32,6 +33,13 @@ permission:
     "pwd": "allow"
     "date *": "allow"
     "uname *": "allow"
+    "env *": "allow"
+    "env": "allow"
+    # Text processing (read-only)
+    "grep *": "allow"
+    "grep": "allow"
+    "sort *": "allow"
+    "sort": "allow"
     # JSON validation
     "python3 -m json.tool*": "allow"
     # Git inspection (also covered by "git *", added for symmetry)

@@ -12,8 +12,11 @@ permission:
     "python3 -m json.tool*": "allow"
     # Read-only file/dir inspection
     "ls *": "allow"
+    "ls": "allow"
     "cat *": "allow"
+    "cat": "allow"
     "head *": "allow"
+    "head": "allow"
     "tail *": "allow"
     "wc *": "allow"
     "file *": "allow"
@@ -21,12 +24,19 @@ permission:
     "tree *": "allow"
     "which *": "allow"
     "pwd": "allow"
+    # Text processing (read-only)
+    "grep *": "allow"
+    "grep": "allow"
+    "sort *": "allow"
+    "sort": "allow"
     # System info
     "date *": "allow"
     "id": "allow"
     "whoami": "allow"
     "hostname *": "allow"
     "uname *": "allow"
+    "env *": "allow"
+    "env": "allow"
     # System resources
     "df *": "allow"
     "free *": "allow"
