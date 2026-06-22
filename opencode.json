@@ -64,8 +64,5 @@
     "max_lines": 3000,
     "max_bytes": 102400
   },
-  "lsp": true,
-  "plugin": [
-    "@slkiser/opencode-quota"
-  ]
+  "lsp": true
 }
