@@ -1,0 +1,72 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "analyst",
+  "username": "cosimo",
+  "autoupdate": true,
+  "compaction": {
+    "auto": true,
+    "prune": true,
+    "reserved": 10000
+  },
+  "instructions": [
+    "~/.config/opencode/rules.md"
+  ],
+  "agent": {
+    "build": {
+      "disable": true
+    },
+    "plan": {
+      "disable": true
+    }
+  },
+  "permission": {
+    "bash": {
+      "git push*": "deny",
+      "git commit*": "ask",
+      "*": "allow"
+    }
+  },
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "enabled": true
+    },
+    "fetch": {
+      "type": "local",
+      "command": [
+        "mcp-server-fetch"
+      ],
+      "enabled": true
+    },
+    "sequential-thinking": {
+      "type": "local",
+      "command": [
+        "mcp-server-sequential-thinking"
+      ],
+      "enabled": true
+    },
+    "exa": {
+      "type": "remote",
+      "url": "https://mcp.exa.ai/mcp",
+      "enabled": true
+    },
+    "playwright": {
+      "type": "local",
+      "command": [
+        "npx",
+        "@playwright/mcp",
+        "--headless"
+      ],
+      "enabled": false
+    }
+  },
+  "tool_output": {
+    "max_lines": 3000,
+    "max_bytes": 102400
+  },
+  "lsp": true,
+  "plugin": [
+    "@slkiser/opencode-quota"
+  ]
+}
