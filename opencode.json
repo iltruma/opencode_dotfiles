@@ -54,8 +54,7 @@
     "playwright": {
       "type": "local",
       "command": [
-        "npx",
-        "@playwright/mcp",
+        "playwright-mcp",
         "--headless"
       ],
       "enabled": false

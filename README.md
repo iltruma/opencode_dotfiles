@@ -36,10 +36,9 @@ My personal [opencode](https://opencode.ai) configuration, synced across machine
 # Python-based (via uv)
 uv tool install mcp-server-fetch
 
-# Node-based (via npm globally or npx on demand)
+# Node-based (via npm)
 npm install -g @modelcontextprotocol/server-sequential-thinking
-
-# @playwright/mcp — installed on demand via npx, no install needed
+npm install -g @playwright/mcp
 ```
 
 ### New machine
