@@ -33,12 +33,13 @@ My personal [opencode](https://opencode.ai) configuration, synced across machine
 - MCP local servers installed:
 
 ```bash
-# Python-based
+# Python-based (via uv)
 uv tool install mcp-server-fetch
-uv tool install mcp-server-sequential-thinking
 
-# Node-based (installed on demand via npx, no install needed)
-# @playwright/mcp
+# Node-based (via npm globally or npx on demand)
+npm install -g @modelcontextprotocol/server-sequential-thinking
+
+# @playwright/mcp — installed on demand via npx, no install needed
 ```
 
 ### New machine
