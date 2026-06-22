@@ -4,20 +4,67 @@ mode: primary
 color: "#C678DD"
 permission:
   bash:
-    "*": allow
-    "git push*": deny
-    "git commit*": ask
-    "rm *": deny
-    "mv *": deny
-    "cp *": deny
-    "dd *": deny
-  read: allow
-  grep: allow
-  glob: allow
-  list: allow
-  edit: deny
-  task: allow
-  webfetch: allow
+    # Git inspection (read-only)
+    "git status*": "allow"
+    "git log*": "allow"
+    "git diff*": "allow"
+    # JSON validation
+    "python3 -m json.tool*": "allow"
+    # Read-only file/dir inspection
+    "ls *": "allow"
+    "cat *": "allow"
+    "head *": "allow"
+    "tail *": "allow"
+    "wc *": "allow"
+    "file *": "allow"
+    "stat *": "allow"
+    "tree *": "allow"
+    "which *": "allow"
+    "pwd": "allow"
+    # System info
+    "date *": "allow"
+    "id": "allow"
+    "whoami": "allow"
+    "hostname *": "allow"
+    "uname *": "allow"
+    # System resources
+    "df *": "allow"
+    "free *": "allow"
+    "ps *": "allow"
+    "pgrep *": "allow"
+    "ss *": "allow"
+    "ip *": "allow"
+    # Read-only container/k8s/iac inspection
+    "docker ps*": "allow"
+    "docker logs *": "allow"
+    "docker inspect *": "allow"
+    "kubectl get *": "allow"
+    "kubectl describe *": "allow"
+    "kubectl logs *": "allow"
+    "kubectl version*": "allow"
+    "kubectl cluster-info*": "allow"
+    "terraform plan*": "allow"
+    "terraform show*": "allow"
+    "terraform state list*": "allow"
+    "journalctl *": "allow"
+    "systemctl status *": "allow"
+    # Git writes
+    "git push*": "deny"
+    "git commit*": "ask"
+    # Destructive commands never allowed
+    "rm *": "deny"
+    "mv *": "deny"
+    "cp *": "deny"
+    "dd *": "deny"
+    # Catch-all
+    "*": "ask"
+  read: "allow"
+  grep: "allow"
+  glob: "allow"
+  list: "allow"
+  edit: "deny"
+  task: "allow"
+  webfetch: "allow"
 ---
 
 Sei l'agente Analyst, un esperto di sistemi, infrastruttura e Site Reliability Engineering (SRE).

@@ -19,13 +19,6 @@
       "disable": true
     }
   },
-  "permission": {
-    "bash": {
-      "git push*": "deny",
-      "git commit*": "ask",
-      "*": "allow"
-    }
-  },
   "mcp": {
     "context7": {
       "type": "remote",

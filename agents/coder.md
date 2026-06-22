@@ -3,29 +3,51 @@ description: "Modalità Sviluppo: Scrittura codice applicativo e file di configu
 mode: primary
 color: success
 permission:
-  edit: allow
-  glob: allow
-  grep: allow
-  list: allow
-  read: allow
+  edit: "allow"
+  glob: "allow"
+  grep: "allow"
+  list: "allow"
+  read: "allow"
   bash:
-    "npm *": allow
-    "npx *": allow
-    "python *": allow
-    "pytest *": allow
-    "pip *": allow
-    "git *": allow
-    "make *": allow
-    "terraform *": allow
-    "ansible* *": allow
-    "docker *": allow
-    "kubectl *": allow
-    "git push*": deny
-    "git commit*": ask
-    "rm *": deny
-    "mv *": deny
-    "*": ask
-  task: allow
+    # Development tools
+    "npm *": "allow"
+    "npx *": "allow"
+    "python *": "allow"
+    "pytest *": "allow"
+    "pip *": "allow"
+    "make *": "allow"
+    "terraform *": "allow"
+    "ansible* *": "allow"
+    "docker *": "allow"
+    "kubectl *": "allow"
+    # Read-only shell utilities (for inspection during dev)
+    "ls *": "allow"
+    "cat *": "allow"
+    "head *": "allow"
+    "tail *": "allow"
+    "wc *": "allow"
+    "file *": "allow"
+    "stat *": "allow"
+    "which *": "allow"
+    "pwd": "allow"
+    "date *": "allow"
+    "uname *": "allow"
+    # JSON validation
+    "python3 -m json.tool*": "allow"
+    # Git inspection (also covered by "git *", added for symmetry)
+    "git status*": "allow"
+    "git log*": "allow"
+    "git diff*": "allow"
+    # All other git operations
+    "git *": "allow"
+    # Git writes: push deny, commit ask
+    "git push*": "deny"
+    "git commit*": "ask"
+    # Destructive commands never allowed
+    "rm *": "deny"
+    "mv *": "deny"
+    "*": "ask"
+  task: "allow"
 ---
 
 Sei l'agente Coder, un Software Engineer Senior.
