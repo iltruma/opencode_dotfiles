@@ -4,6 +4,8 @@ mode: primary
 color: "#C678DD"
 permission:
   bash:
+    # Catch-all (FIRST, per "last matching rule wins" — must be before specific rules)
+    "*": "ask"
     # Git inspection (read-only)
     "git status*": "allow"
     "git log*": "allow"
@@ -29,6 +31,16 @@ permission:
     "grep": "allow"
     "sort *": "allow"
     "sort": "allow"
+    "awk *": "allow"
+    "awk": "allow"
+    "cut *": "allow"
+    "cut": "allow"
+    "tr *": "allow"
+    "tr": "allow"
+    "uniq *": "allow"
+    "uniq": "allow"
+    "diff *": "allow"
+    "diff": "allow"
     # System info
     "date *": "allow"
     "id": "allow"
@@ -37,6 +49,13 @@ permission:
     "uname *": "allow"
     "env *": "allow"
     "env": "allow"
+    "uptime": "allow"
+    "lscpu *": "allow"
+    "lscpu": "allow"
+    "nproc": "allow"
+    "mount": "allow"
+    "findmnt *": "allow"
+    "findmnt": "allow"
     # System resources
     "df *": "allow"
     "free *": "allow"
@@ -44,6 +63,15 @@ permission:
     "pgrep *": "allow"
     "ss *": "allow"
     "ip *": "allow"
+    "du *": "allow"
+    "du": "allow"
+    "lsblk *": "allow"
+    "lsblk": "allow"
+    # Network diagnostics (read-only)
+    "dig *": "allow"
+    "dig": "allow"
+    "nslookup *": "allow"
+    "nslookup": "allow"
     # Read-only container/k8s/iac inspection
     "docker ps*": "allow"
     "docker logs *": "allow"
@@ -66,8 +94,6 @@ permission:
     "mv *": "deny"
     "cp *": "deny"
     "dd *": "deny"
-    # Catch-all
-    "*": "ask"
   read: "allow"
   grep: "allow"
   glob: "allow"

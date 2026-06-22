@@ -9,17 +9,29 @@ permission:
   list: "allow"
   read: "allow"
   bash:
+    # Catch-all (FIRST, per "last matching rule wins" — must be before specific rules)
+    "*": "ask"
     # Development tools
     "npm *": "allow"
+    "npm": "allow"
     "npx *": "allow"
+    "npx": "allow"
     "python *": "allow"
+    "python": "allow"
     "pytest *": "allow"
+    "pytest": "allow"
     "pip *": "allow"
+    "pip": "allow"
     "make *": "allow"
+    "make": "allow"
     "terraform *": "allow"
+    "terraform": "allow"
     "ansible* *": "allow"
+    "ansible*": "allow"
     "docker *": "allow"
+    "docker": "allow"
     "kubectl *": "allow"
+    "kubectl": "allow"
     # Read-only shell utilities (for inspection during dev)
     "ls *": "allow"
     "cat *": "allow"
@@ -40,8 +52,22 @@ permission:
     "grep": "allow"
     "sort *": "allow"
     "sort": "allow"
-    # JSON validation
+    "awk *": "allow"
+    "awk": "allow"
+    "cut *": "allow"
+    "cut": "allow"
+    "tr *": "allow"
+    "tr": "allow"
+    "diff *": "allow"
+    "diff": "allow"
+    # JSON / encoding (read-only)
     "python3 -m json.tool*": "allow"
+    "jq *": "allow"
+    "jq": "allow"
+    "xxd *": "allow"
+    "base64 *": "allow"
+    "md5sum *": "allow"
+    "sha256sum *": "allow"
     # Git inspection (also covered by "git *", added for symmetry)
     "git status*": "allow"
     "git log*": "allow"
@@ -54,7 +80,6 @@ permission:
     # Destructive commands never allowed
     "rm *": "deny"
     "mv *": "deny"
-    "*": "ask"
   task: "allow"
 ---
 
