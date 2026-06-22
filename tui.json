@@ -4,7 +4,6 @@
     "@slkiser/opencode-quota"
   ],
   "mouse": true,
-  "auto_scroll": false,
   "keybinds": {
     "app_exit":          "ctrl+d,<leader>q",
     "session_interrupt": "escape",

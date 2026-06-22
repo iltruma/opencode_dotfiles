@@ -52,6 +52,9 @@ mv ~/.config/opencode ~/.config/opencode.bak 2>/dev/null || true
 
 # 3. Symlink the config folder
 ln -s ~/dotfiles/opencode_dotfiles ~/.config/opencode
+
+# 4. Initialize the opencode-quota plugin (generates opencode-quota/quota-toast.json)
+npx -y @slkiser/opencode-quota init
 ```
 
 ### Provider setup
