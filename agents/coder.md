@@ -38,13 +38,20 @@ permission:
     "head *": "allow"
     "head": "allow"
     "tail *": "allow"
+    "tail": "allow"
     "wc *": "allow"
+    "wc": "allow"
     "file *": "allow"
+    "file": "allow"
     "stat *": "allow"
+    "stat": "allow"
     "which *": "allow"
+    "which": "allow"
     "pwd": "allow"
     "date *": "allow"
+    "date": "allow"
     "uname *": "allow"
+    "uname": "allow"
     "env *": "allow"
     "env": "allow"
     # Text processing (read-only)
@@ -94,6 +101,7 @@ permission:
     # Destructive commands never allowed
     "rm *": "deny"
     "mv *": "deny"
+    "dd *": "deny"
   task: "allow"
 ---
 
