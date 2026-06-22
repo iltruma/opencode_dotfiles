@@ -29,7 +29,17 @@ My personal [opencode](https://opencode.ai) configuration, synced across machine
 
 - [opencode](https://opencode.ai/docs) installed
 - `node` / `npm` installed
-- `mcp-server-fetch` and `mcp-server-sequential-thinking` installed globally
+- `uv` installed (`curl -LsSf https://astral.sh/uv/install.sh | sh`)
+- MCP local servers installed:
+
+```bash
+# Python-based
+uv tool install mcp-server-fetch
+uv tool install mcp-server-sequential-thinking
+
+# Node-based (installed on demand via npx, no install needed)
+# @playwright/mcp
+```
 
 ### New machine
 
@@ -42,9 +52,6 @@ mv ~/.config/opencode ~/.config/opencode.bak 2>/dev/null || true
 
 # 3. Symlink the config folder
 ln -s ~/dotfiles/opencode_dotfiles ~/.config/opencode
-
-# 4. Install plugin dependencies
-cd ~/.config/opencode && npm install
 ```
 
 ### Provider setup
