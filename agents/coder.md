@@ -76,7 +76,21 @@ permission:
     "git *": "allow"
     # Git writes: push deny, commit ask
     "git push*": "deny"
+    "git -C * push*": "deny"
     "git commit*": "ask"
+    "git -C * commit*": "ask"
+    # Git destructive operations (deny, with -C variants for cwd flags)
+    "git reset --hard*": "deny"
+    "git -C * reset --hard*": "deny"
+    "git checkout --*": "deny"
+    "git -C * checkout --*": "deny"
+    "git clean -f*": "deny"
+    "git -C * clean -f*": "deny"
+    "git branch -D*": "deny"
+    "git -C * branch -D*": "deny"
+    "git stash drop*": "deny"
+    "git -C * stash drop*": "deny"
+    "git filter-branch*": "deny"
     # Destructive commands never allowed
     "rm *": "deny"
     "mv *": "deny"

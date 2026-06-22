@@ -7,9 +7,24 @@ permission:
     # Catch-all (FIRST, per "last matching rule wins" — must be before specific rules)
     "*": "ask"
     # Git inspection (read-only)
+    # Direct invocation
     "git status*": "allow"
     "git log*": "allow"
     "git diff*": "allow"
+    "git show*": "allow"
+    "git blame*": "allow"
+    "git reflog*": "allow"
+    # With -C <path> (covers 'git -C /path status --short')
+    "git -C * status*": "allow"
+    "git -C * log*": "allow"
+    "git -C * diff*": "allow"
+    "git -C * show*": "allow"
+    "git -C * blame*": "allow"
+    "git -C * reflog*": "allow"
+    # With --git-dir=<path>
+    "git --git-dir=* status*": "allow"
+    "git --git-dir=* log*": "allow"
+    "git --git-dir=* diff*": "allow"
     # JSON validation
     "python3 -m json.tool*": "allow"
     # Read-only file/dir inspection
