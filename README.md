@@ -6,7 +6,7 @@ My personal [opencode](https://opencode.ai) configuration, synced across machine
 
 | File | Description |
 |---|---|
-| `opencode.json` | Base config — agents, MCP servers, permissions, plugins |
+| `opencode.json` | Base config — agents, MCP servers, permissions |
 | `rules.md` | Global instructions injected into every session |
 | `tui.json` | TUI preferences |
 | `agents/analyst.md` | Default agent — analysis and planning |
@@ -19,7 +19,7 @@ My personal [opencode](https://opencode.ai) configuration, synced across machine
 |---|---|---|
 | [context7](https://context7.com) | remote | Up-to-date library documentation |
 | [exa](https://exa.ai) | remote | Web search |
-| [fetch](https://github.com/modelcontextprotocol/servers/tree/main/src/fetch) | local | Fetch URLs |
+| [grep.app](https://grep.app) | remote | Code search across public GitHub repos |
 | [sequential-thinking](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking) | local | Structured reasoning |
 | [playwright](https://github.com/microsoft/playwright-mcp) | local | Browser automation (disabled by default) |
 
@@ -33,9 +33,6 @@ My personal [opencode](https://opencode.ai) configuration, synced across machine
 - MCP local servers installed:
 
 ```bash
-# Python-based (via uv)
-uv tool install mcp-server-fetch
-
 # Node-based (via npm)
 npm install -g @modelcontextprotocol/server-sequential-thinking
 npm install -g @playwright/mcp

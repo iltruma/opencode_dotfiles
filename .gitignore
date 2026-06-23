@@ -3,4 +3,3 @@ package.json
 package-lock.json
 opencode-quota/
 *.local.json
-opencode-mem.jsonc
