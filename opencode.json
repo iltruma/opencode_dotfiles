@@ -49,6 +49,16 @@
       "type": "remote",
       "url": "https://mcp.grep.app",
       "enabled": true
+    },
+    "memory": {
+      "type": "local",
+      "command": [
+        "mcp-server-memory"
+      ],
+      "env": {
+        "MEMORY_FILE_PATH": "/home/cosimo/.config/opencode/memory.jsonl"
+      },
+      "enabled": true
     }
   },
   "tool_output": {
