@@ -1,0 +1,49 @@
+{
+  // Storage path for the local vector database
+  "storagePath": "~/.opencode-mem/data",
+
+  // Use the anthropic provider already authenticated in opencode (no separate API key needed)
+  "opencodeProvider": "anthropic",
+  "opencodeModel": "claude-haiku-4-5-20251001",
+
+  // Local embedding model (downloaded automatically on first use)
+  "embeddingModel": "Xenova/nomic-embed-text-v1",
+
+  // Memory scope defaults to current project
+  "memory": {
+    "defaultScope": "project"
+  },
+
+  // Web UI available at http://127.0.0.1:4747
+  "webServerEnabled": false,
+  "webServerPort": 4747,
+
+  // Automatically extract memories from conversations
+  "autoCaptureEnabled": true,
+  "autoCaptureLanguage": "auto",
+
+  // Inject up to 3 relevant memories at the start of each chat
+  "chatMessage": {
+    "enabled": true,
+    "maxMemories": 3,
+    "excludeCurrentSession": true,
+    "injectOn": "first"
+  },
+
+  // Compact old memories when limit is reached
+  "compaction": {
+    "enabled": true,
+    "memoryLimit": 10
+  },
+
+  // Max memories returned per query
+  "maxMemories": 10,
+
+  // Analyze user profile every 10 interactions
+  "userProfileAnalysisInterval": 10,
+
+  // Notifications
+  "showAutoCaptureToasts": true,
+  "showUserProfileToasts": false,
+  "showErrorToasts": true
+}
