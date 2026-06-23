@@ -25,13 +25,6 @@
       "url": "https://mcp.context7.com/mcp",
       "enabled": true
     },
-    "fetch": {
-      "type": "local",
-      "command": [
-        "mcp-server-fetch"
-      ],
-      "enabled": true
-    },
     "sequential-thinking": {
       "type": "local",
       "command": [
@@ -51,6 +44,11 @@
         "--headless"
       ],
       "enabled": false
+    },
+    "grep_app": {
+      "type": "remote",
+      "url": "https://mcp.grep.app",
+      "enabled": true
     }
   },
   "tool_output": {
