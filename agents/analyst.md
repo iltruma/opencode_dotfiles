@@ -132,7 +132,11 @@ permission:
   glob: "allow"
   list: "allow"
   edit: "deny"
-  task: "allow"
+  task:
+    # Catch-all (FIRST, per "last matching rule wins" — must be before specific rules)
+    "*": "deny"
+    # Architect is the only subagent the analyst can delegate to
+    "architect": "allow"
   webfetch: "allow"
 ---
 
