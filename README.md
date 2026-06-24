@@ -6,7 +6,7 @@ My personal [opencode](https://opencode.ai) configuration, synced across machine
 
 | File | Description |
 |---|---|
-| `opencode.json` | Base config — agents, MCP servers, permissions |
+| `opencode.json` | Base config — agents, MCP servers, plugins, permissions |
 | `rules.md` | Global instructions injected into every session |
 | `tui.json` | TUI preferences |
 | `agents/analyst.md` | Default agent — analysis and planning |
@@ -22,6 +22,15 @@ My personal [opencode](https://opencode.ai) configuration, synced across machine
 | [grep.app](https://grep.app) | remote | Code search across public GitHub repos |
 | [sequential-thinking](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking) | local | Structured reasoning |
 | [playwright](https://github.com/microsoft/playwright-mcp) | local | Browser automation (disabled by default) |
+
+## Plugins
+
+Plugins are npm packages listed in `opencode.json` under the top-level `plugin` key.
+opencode resolves and loads them at startup; this repo currently ships one.
+
+| Plugin | Purpose | Notes |
+|---|---|---|
+| [`@dietrichgebert/ponytail`](https://github.com/DietrichGebert/ponytail) | "Lazy senior dev" ruleset injected into every turn, plus `/ponytail*` commands | Always-on by default. Requires `node` on PATH for lifecycle hooks. Default mode `full` — override per-machine via `PONYTAIL_DEFAULT_MODE` env (`lite`/`full`/`ultra`/`off`) or `defaultMode` in `~/.config/ponytail/config.json`. |
 
 ## Setup
 
