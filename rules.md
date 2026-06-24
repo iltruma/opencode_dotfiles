@@ -6,7 +6,6 @@
 - Se serve cercare informazioni sul web: usa exa (websearch)
 - Se serve leggere una pagina o URL: usa fetch
 - Se devi ragionare su un problema complesso: usa sequential-thinking
-- Se l'utente menziona fatti o entità da ricordare tra sessioni: usa memory
 - Se devi navigare e interagire con una pagina web: usa playwright
 - Non chiedere "vuoi che cerchi?" — cerca direttamente
 
