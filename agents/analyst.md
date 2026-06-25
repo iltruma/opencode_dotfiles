@@ -136,8 +136,9 @@ permission:
   task:
     # Catch-all (FIRST, per "last matching rule wins" — must be before specific rules)
     "*": "deny"
-    # Architect is the only subagent the analyst can delegate to
+    # Subagents the analyst can delegate to
     "architect": "allow"
+    "coder": "allow"
   webfetch: "allow"
 ---
 
@@ -162,3 +163,10 @@ Ogni analisi segue questo schema:
 2. **Evidenze** — log, metriche, output comandi rilevanti
 3. **Causa principale** — root cause identificata
 4. **Azione raccomandata** — step concreti per risolvere (da passare a @coder o a un operatore)
+
+## Anti-overengineering (ponytail guardrails)
+- La diagnosi è un report, non un essay: pochi comandi mirati, evidenze minime, niente tour de force.
+- Sezione "Causa principale" = 1-3 righe, root cause identificata. "Azione raccomandata" = step concreti azionabili, non un piano di remediation di 50 punti.
+- Non riscrivere il playbook di monitoring; un comando `kubectl describe` / `docker logs` mirato batte dieci flag generici.
+- Non proporre astrazioni, factory di alert, o framework di runbook non richiesti.
+- Lazy ≠ inaccurato: cita sempre l'evidenza (log line, exit code, metric value) che sostiene la root cause.
