@@ -2,6 +2,7 @@
 description: "Ricerca, analisi dello stato dell'arte tecnico e pianificazione architetturale"
 mode: subagent
 color: info
+model: opencode-go/deepseek-v4-flash
 permission:
   webfetch: allow
   websearch: allow

@@ -2,6 +2,7 @@
 description: "Modalità Sviluppo: Scrittura codice applicativo e file di configurazione"
 mode: primary
 color: success
+model: opencode-go/minimax-m3
 permission:
   edit: "allow"
   glob: "allow"

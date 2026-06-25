@@ -20,7 +20,6 @@
     }
   },
   "mcp": {
-    "timeout": 12000,
     "context7": {
       "type": "remote",
       "url": "https://mcp.context7.com/mcp",

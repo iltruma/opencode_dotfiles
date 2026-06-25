@@ -2,6 +2,7 @@
 description: "Modalità SRE: Diagnostica infrastruttura, troubleshooting e analisi log"
 mode: primary
 color: "#C678DD"
+model: opencode-go/deepseek-v4-pro
 permission:
   bash:
     # Catch-all (FIRST, per "last matching rule wins" — must be before specific rules)
