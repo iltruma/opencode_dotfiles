@@ -1,7 +1,6 @@
 ---
 description: "Aggiorna la documentazione esistente (README, CHANGELOG, docstring, JSDoc, docs/). NON crea nuovi file, delega a @coder per modifiche al codice."
 mode: subagent
-hidden: true
 color: accent
 model: opencode-go/deepseek-v4-flash
 permission:
