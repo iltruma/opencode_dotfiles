@@ -9,6 +9,11 @@ permission:
   grep: "allow"
   list: "allow"
   read: "allow"
+  external_directory:
+    "**/.env": "deny"
+    "**/.env.*": "deny"
+    "**/.envrc": "deny"
+    "*": "allow"
   bash:
     # Catch-all (FIRST, per "last matching rule wins" — must be before specific rules)
     "*": "ask"
@@ -103,6 +108,19 @@ permission:
     "rm *": "deny"
     "mv *": "deny"
     "dd *": "deny"
+    # .env protection (LAST — overrides cat/grep/head/tail/sort/awk allows above)
+    "cat .env*": "deny"
+    "cat */.env*": "deny"
+    "head .env*": "deny"
+    "head */.env*": "deny"
+    "tail .env*": "deny"
+    "tail */.env*": "deny"
+    "grep .env*": "deny"
+    "grep */.env*": "deny"
+    "sort .env*": "deny"
+    "sort */.env*": "deny"
+    "awk .env*": "deny"
+    "awk */.env*": "deny"
   task:
     # Catch-all (FIRST, per "last matching rule wins" — must be before specific rules)
     "*": "deny"
