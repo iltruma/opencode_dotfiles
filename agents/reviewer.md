@@ -2,7 +2,6 @@
 description: "Code review senior: bug, edge case, manutenibilità, performance, security. Read-only: analizza senza modificare, output = lista azionabile per @coder."
 mode: subagent
 color: warning
-model: opencode-go/deepseek-v4-pro
 permission:
   read: allow
   glob: allow
