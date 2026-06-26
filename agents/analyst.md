@@ -1,7 +1,7 @@
 ---
 description: "Modalità SRE: Diagnostica infrastruttura, troubleshooting e analisi log. Read-only: non modifica file né codice, delega sempre a @coder per le modifiche."
 mode: primary
-color: purple
+color: "#C678DD"
 model: opencode-go/deepseek-v4-pro
 permission:
   bash:
