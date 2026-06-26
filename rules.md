@@ -6,7 +6,8 @@
 - Se serve cercare informazioni sul web: usa exa (websearch)
 - Se serve leggere una pagina o URL: usa fetch
 - Se devi ragionare su un problema complesso: usa sequential-thinking
-- Se devi navigare e interagire con una pagina web: usa playwright
+- Se devi cercare esempi di codice su repository pubblici GitHub: usa grep_app
+- Se devi navigare e interagire con una pagina web: usa playwright (solo se abilitato nella sessione corrente)
 - Non chiedere "vuoi che cerchi?" — cerca direttamente
 
 ## Lingua

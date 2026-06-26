@@ -4,9 +4,7 @@
   "username": "cosimo",
   "autoupdate": true,
   "compaction": {
-    "auto": true,
-    "prune": true,
-    "reserved": 10000
+    "auto": true
   },
   "instructions": [
     "~/.config/opencode/rules.md"
@@ -16,6 +14,9 @@
       "disable": true
     },
     "plan": {
+      "disable": true
+    },
+    "general": {
       "disable": true
     }
   },
