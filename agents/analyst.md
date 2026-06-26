@@ -157,6 +157,7 @@ permission:
     # Subagents the analyst can delegate to
     "architect": "allow"
     "coder": "allow"
+    "documenter": "allow"
   webfetch: "allow"
 ---
 

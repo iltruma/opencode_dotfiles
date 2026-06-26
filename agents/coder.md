@@ -124,8 +124,10 @@ permission:
   task:
     # Catch-all (FIRST, per "last matching rule wins" — must be before specific rules)
     "*": "deny"
-    # Architect is the only subagent the coder can delegate to
+    # Subagents the coder can delegate to
     "architect": "allow"
+    "reviewer": "allow"
+    "documenter": "allow"
 ---
 
 Sei l'agente Coder, un Software Engineer Senior.
