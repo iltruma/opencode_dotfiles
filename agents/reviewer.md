@@ -18,6 +18,7 @@ permission:
     "**/.env": deny
     "**/.env.*": deny
     "**/.envrc": deny
+    "*": ask
   bash:
     "*": "ask"
     "git status*": "allow"

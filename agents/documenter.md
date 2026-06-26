@@ -25,9 +25,10 @@ permission:
     "**/AUTHORS*": "allow"
   bash: deny
   external_directory:
-    "*": "deny"
     "**/.env": "deny"
     "**/.env.*": "deny"
+    "**/.envrc": "deny"
+    "*": "allow"
 ---
 
 Sei l'agente Documenter, specializzato nel mantenere la documentazione di un progetto esistente.
