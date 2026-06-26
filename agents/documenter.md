@@ -15,10 +15,13 @@ permission:
   edit:
     # Catch-all deny FIRST (last matching rule wins)
     "*": "deny"
-    # Allow only on existing docs files
+    # Allow docs files — root-level and nested (ponytail: **/*.md alone misses root)
     "**/*.md": "allow"
+    "*.md": "allow"
     "**/*.mdx": "allow"
+    "*.mdx": "allow"
     "**/*.rst": "allow"
+    "*.rst": "allow"
     "**/CHANGELOG*": "allow"
     "**/LICENSE*": "allow"
     "**/AUTHORS*": "allow"
