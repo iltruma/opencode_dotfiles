@@ -9,11 +9,11 @@ My personal [opencode](https://opencode.ai) configuration, synced across machine
 | `opencode.json` | Base config — agents, MCP servers, plugins, permissions |
 | `rules.md` | Global instructions injected into every session |
 | `tui.json` | TUI preferences |
-| `agents/analyst.md` | Default agent — analysis and planning |
-| `agents/architect.md` | Architecture research and design |
-| `agents/coder.md` | Senior software engineer, writes and edits code |
-| `agents/documenter.md` | Maintains documentation — updates README, CHANGELOG, docstrings |
-| `agents/reviewer.md` | Senior code review — bugs, edge cases, security, performance |
+| `agents/analyst.md` | Default agent — SRE analysis, infra diagnostics, log analysis, troubleshooting (read-only) |
+| `agents/architect.md` | Architecture research and technical planning (read-only, subagent) |
+| `agents/coder.md` | Senior software engineer — writes and edits code, runs builds and tests. Uses `opencode-go/minimax-m3` by default (override in `opencode.local.json` if the provider is unavailable) |
+| `agents/documenter.md` | Maintains existing documentation — updates README, CHANGELOG, docstrings (existing files only, no new docs) |
+| `agents/reviewer.md` | Senior code review — bugs, edge cases, maintainability, security, performance (read-only, subagent) |
 
 > Built-in agents `build`, `plan`, `general`, and `explore` are disabled in `opencode.json` — only the custom agents listed above are available.
 
@@ -25,16 +25,18 @@ My personal [opencode](https://opencode.ai) configuration, synced across machine
 | [exa](https://exa.ai) | remote | Web search |
 | [grep.app](https://grep.app) | remote | Code search across public GitHub repos |
 | [sequential-thinking](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking) | local | Structured reasoning |
+| [codemem](https://github.com/kunickiaj/codemem) | local | Persistent memory across sessions |
 | [playwright](https://github.com/microsoft/playwright-mcp) | local | Browser automation (disabled by default) |
 
 ## Plugins
 
 Plugins are npm packages listed in `opencode.json` under the top-level `plugin` key.
-opencode resolves and loads them at startup; this repo currently ships one.
+opencode resolves and loads them at startup; this repo ships two.
 
 | Plugin | Purpose | Notes |
 |---|---|---|
 | [`@dietrichgebert/ponytail`](https://github.com/DietrichGebert/ponytail) | "Lazy senior dev" ruleset injected into every turn, plus `/ponytail*` commands | Always-on by default. Requires `node` on PATH for lifecycle hooks. Default mode `full` — override per-machine via `PONYTAIL_DEFAULT_MODE` env (`lite`/`full`/`ultra`/`off`) or `defaultMode` in `~/.config/ponytail/config.json`. |
+| [`@codemem/opencode-plugin`](https://github.com/kunickiaj/codemem) | Persistent memory across sessions — context summaries and observations surfaced at session start | Works in tandem with the `codemem` MCP server. Install once with `npm install` in `~/.config/opencode/`. |
 
 ## Setup
 
@@ -47,8 +49,8 @@ opencode resolves and loads them at startup; this repo currently ships one.
 
 ```bash
 # Node-based (via npm)
-npm install -g @modelcontextprotocol/server-sequential-thinking
-npm install -g @playwright/mcp
+npm install -g mcp-server-sequential-thinking
+npm install -g @playwright/mcp  # installs the 'playwright-mcp' binary
 ```
 
 ### New machine
@@ -62,6 +64,9 @@ mv ~/.config/opencode ~/.config/opencode.bak 2>/dev/null || true
 
 # 3. Symlink the config folder
 ln -s ~/dotfiles/opencode_dotfiles ~/.config/opencode
+
+# 4. Install plugins
+cd ~/.config/opencode && npm install
 ```
 
 ### Provider setup

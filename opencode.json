@@ -53,6 +53,15 @@
       "type": "remote",
       "url": "https://mcp.grep.app",
       "enabled": true
+    },
+    "codemem": {
+      "type": "local",
+      "command": [
+        "npx",
+        "codemem",
+        "mcp"
+      ],
+      "enabled": true
     }
   },
   "tool_output": {
@@ -61,6 +70,7 @@
   },
   "lsp": true,
   "plugin": [
-    "@dietrichgebert/ponytail"
+    "@dietrichgebert/ponytail",
+    "@codemem/opencode-plugin"
   ]
 }
