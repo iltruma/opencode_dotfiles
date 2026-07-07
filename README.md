@@ -6,12 +6,12 @@ My personal [opencode](https://opencode.ai) configuration, synced across machine
 
 | File | Description |
 |---|---|
-| `opencode.json` | Base config — agents, MCP servers, plugins, permissions |
+| `opencode.json` | Base config — agents, MCP servers, plugins, permissions, startup optimizations (`enabled_providers`, `snapshot`) |
 | `rules.md` | Global instructions injected into every session |
 | `tui.json` | TUI preferences |
 | `agents/analyst.md` | Default agent — SRE analysis, infra diagnostics, log analysis, troubleshooting (read-only) |
 | `agents/architect.md` | Architecture research and technical planning (read-only, subagent) |
-| `agents/coder.md` | Senior software engineer — writes and edits code, runs builds and tests. Uses `opencode-go/minimax-m3` by default (override in `opencode.local.json` if the provider is unavailable) |
+| `agents/coder.md` | Senior software engineer — writes and edits code, runs builds and tests |
 | `agents/documenter.md` | Maintains existing documentation — updates README, CHANGELOG, docstrings (existing files only, no new docs) |
 | `agents/reviewer.md` | Senior code review — bugs, edge cases, maintainability, security, performance (read-only, subagent) |
 
@@ -89,6 +89,13 @@ ln -s ~/dotfiles/opencode_dotfiles ~/.config/opencode
 
 This repo does **not** include any provider configuration — API keys and provider
 details are machine-specific and never committed.
+
+`opencode.json` sets `"enabled_providers": ["stargate", "opencode-go"]` to restrict
+provider loading to only the ones actually used (faster startup). If you add a custom
+provider via `opencode.local.json`, include its ID in `enabled_providers` too.
+
+`"snapshot": false` disables file tracking (reduces I/O overhead). Re-enable if you
+need the undo-snapshot feature.
 
 #### Option A — opencode Go (personal machine)
 
