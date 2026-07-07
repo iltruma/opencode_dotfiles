@@ -9,6 +9,9 @@
 - Se devi cercare esempi di codice su repository pubblici GitHub: usa grep_app
 - Non chiedere "vuoi che cerchi?" — cerca direttamente
 
+## Attualità
+- Prima di ogni ricerca web o fetch, controlla `date` e includi la data corrente nella query di ricerca per evitare informazioni obsolete
+
 ## Lingua
 - Rispondi sempre in italiano
 - Commenti nel codice in inglese
