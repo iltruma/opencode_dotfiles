@@ -1,7 +1,7 @@
 ---
 description: "Deep research agent. Pianifica, ricerca iterativamente, identifica gap e sintetizza in report strutturati con fonti citate."
 mode: primary
-color: "#A0522D"
+color: "#FFFF00"
 permission:
   bash:
     "*": "deny"
