@@ -7,7 +7,6 @@
 - Se serve leggere una pagina o URL: usa fetch
 - Se devi ragionare su un problema complesso: usa sequential-thinking
 - Se devi cercare esempi di codice su repository pubblici GitHub: usa grep_app
-- Se devi ricordare o recuperare contesto da sessioni precedenti: usa i tool codemem (mem-recent, mem-stats, mem-status)
 - Non chiedere "vuoi che cerchi?" — cerca direttamente
 
 ## Lingua

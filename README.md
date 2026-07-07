@@ -6,16 +6,17 @@ My personal [opencode](https://opencode.ai) configuration, synced across machine
 
 | File | Description |
 |---|---|
-| `opencode.json` | Base config — agents, MCP servers, plugins, permissions, startup optimizations (`enabled_providers`, `snapshot`) |
+| `opencode.json` | Base config — agents, MCP servers, plugins, startup optimizations |
 | `rules.md` | Global instructions injected into every session |
-| `tui.json` | TUI preferences |
+| `tui.json` | TUI preferences (mouse, keybinds) |
 | `agents/analyst.md` | Default agent — SRE analysis, infra diagnostics, log analysis, troubleshooting (read-only) |
 | `agents/architect.md` | Architecture research and technical planning (read-only, subagent) |
-| `agents/coder.md` | Senior software engineer — writes and edits code, runs builds and tests |
-| `agents/documenter.md` | Maintains existing documentation — updates README, CHANGELOG, docstrings (existing files only, no new docs) |
+| `agents/coder.md` | Senior software engineer — writes and edits code, runs builds and tests (primary) |
+| `agents/documenter.md` | Maintains existing documentation — README, CHANGELOG, docstrings (subagent, no new files) |
+| `agents/researcher.md` | Deep research — iterative search, gap analysis, structured report with citations (primary) |
 | `agents/reviewer.md` | Senior code review — bugs, edge cases, maintainability, security, performance (read-only, subagent) |
 
-> Built-in agents `build`, `plan`, `general`, and `explore` are disabled in `opencode.json` — only the custom agents listed above are available.
+> Built-in agents `build`, `plan`, `general`, and `explore` are disabled in `opencode.json`.
 
 ## MCP servers
 
@@ -25,33 +26,15 @@ My personal [opencode](https://opencode.ai) configuration, synced across machine
 | [exa](https://exa.ai) | remote | Web search |
 | [grep.app](https://grep.app) | remote | Code search across public GitHub repos |
 | [sequential-thinking](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking) | local | Structured reasoning |
-| [codemem](https://github.com/kunickiaj/codemem) | local | Persistent memory across sessions — **managed via plugin** (`@codemem/opencode-plugin`), non come MCP server separato |
 
 ## Plugins
 
-Plugins are npm packages listed in `opencode.json` under the top-level `plugin` key.
-opencode uses its **embedded bun** to resolve and load them at startup; this repo ships two.
+Plugins are npm packages listed in `opencode.json` under the `plugin` key.
+opencode uses its embedded bun to resolve and load them at startup.
 
-| Plugin | Purpose | Notes |
-|---|---|---|
-| [`@dietrichgebert/ponytail`](https://github.com/DietrichGebert/ponytail) | "Lazy senior dev" ruleset injected into every turn, plus `/ponytail*` commands | Always-on by default. Requires `node` on PATH for lifecycle hooks. Default mode `full` — override per-machine via `PONYTAIL_DEFAULT_MODE` env (`lite`/`full`/`ultra`/`off`) or `defaultMode` in `~/.config/ponytail/config.json`. |
-| [`@codemem/opencode-plugin`](https://github.com/kunickiaj/codemem) | Persistent memory across sessions — context summaries and observations surfaced at session start | Gestito come plugin (non MCP server separato). Richiede il binario `codemem` globale — vedi note sotto. |
-
-### codemem — note operative
-
-Il plugin richiede il binario `codemem` sul PATH. Installarlo globalmente con **bun**:
-
-```bash
-bun install -g codemem@0.22.4
-```
-
-Senza il binario, all'avvio compare il warning `/bin/sh: codemem: not found`.
-
-**Viewer pid stale**: se il viewer crasha e lascia un file stale, il plugin non si riavvia finché non si cancella manualmente:
-
-```bash
-rm ~/.codemem/viewer.pid
-```
+| Plugin | Purpose |
+|---|---|
+| [`@dietrichgebert/ponytail`](https://github.com/DietrichGebert/ponytail) | "Lazy senior dev" ruleset injected into every turn, plus `/ponytail*` slash commands |
 
 ## Setup
 
@@ -59,13 +42,10 @@ rm ~/.codemem/viewer.pid
 
 - [opencode](https://opencode.ai/docs) installed
 - `bun` installed (`curl -fsSL https://bun.sh/install | bash`)
-- `uv` installed (`curl -LsSf https://astral.sh/uv/install.sh | sh`)
-- MCP local servers e binari installati:
+- MCP local servers installati:
 
 ```bash
-# Node-based (via bun)
 bun install -g mcp-server-sequential-thinking
-bun install -g codemem@0.22.4   # required by @codemem/opencode-plugin
 ```
 
 ### New machine
@@ -80,22 +60,21 @@ mv ~/.config/opencode ~/.config/opencode.bak 2>/dev/null || true
 # 3. Symlink the config folder
 ln -s ~/dotfiles/opencode_dotfiles ~/.config/opencode
 
- # 4. Install plugins (opencode uses embedded bun automatically at startup)
- #    No manual install needed — bun.lockb is committed and pins versions
- cd ~/.config/opencode && bun install
+# 4. Install plugins (opencode uses embedded bun automatically at startup)
+cd ~/.config/opencode && bun install
 ```
 
 ### Provider setup
 
 This repo does **not** include any provider configuration — API keys and provider
-details are machine-specific and never committed.
+details are machine-specific and never committed (`*.local.json` is gitignored).
 
 `opencode.json` sets `"enabled_providers": ["stargate", "opencode-go"]` to restrict
 provider loading to only the ones actually used (faster startup). If you add a custom
-provider via `opencode.local.json`, include its ID in `enabled_providers` too.
+provider, include its ID in `enabled_providers` too.
 
-`"snapshot": false` disables file tracking (reduces I/O overhead). Re-enable if you
-need the undo-snapshot feature.
+`"snapshot": false` disables file snapshot tracking (reduces I/O overhead).
+Re-enable if you need the undo-snapshot feature.
 
 #### Option A — opencode Go (personal machine)
 
@@ -106,8 +85,8 @@ and paste your API key. Done.
 
 Create a local override file (never committed):
 
-```bash
-cat > ~/.config/opencode/opencode.local.json << 'EOF'
+```jsonc
+// ~/.config/opencode/opencode.local.json
 {
   "$schema": "https://opencode.ai/config.json",
   "provider": {
@@ -115,33 +94,23 @@ cat > ~/.config/opencode/opencode.local.json << 'EOF'
       "npm": "@ai-sdk/openai-compatible",
       "name": "Your Provider",
       "options": {
-        "baseURL": "https://your-provider-url/v1",
+        "baseURL": "https://your-provider-url/",
         "apiKey": "your-api-key"
       },
       "models": {
-        "model-id": {
-          "name": "Model Display Name",
-          "limit": { "context": 200000, "output": 65536 }
-        }
+        "model-id": { "name": "Model Display Name" }
       }
     }
   }
 }
-EOF
 ```
 
-Then export the path in your `~/.zshrc`:
-
-```bash
-export OPENCODE_CONFIG="$HOME/.config/opencode/opencode.local.json"
-```
-
-opencode will deep-merge the local file on top of the base config at startup.
+opencode deep-merges `opencode.local.json` on top of the base config at startup.
 
 ## Daily workflow
 
 ```bash
-# Edit any config file — changes are already in ~/dotfiles/opencode_dotfiles via symlink
+# Edit any config file — changes are live via symlink
 
 # Sync changes
 cd ~/dotfiles/opencode_dotfiles
@@ -157,9 +126,9 @@ cd ~/dotfiles/opencode_dotfiles && git pull
 
 | File/Folder | Reason |
 |---|---|
-| `opencode.local.json` | Machine-specific provider config and API keys |
+| `*.local.json` | Machine-specific provider config and API keys |
 | `node_modules/` | Generated by bun |
 | `package.json` | Auto-generated by opencode for plugins |
-| `bun.lockb` | Generated by bun — **non committare**, machine-specific |
-| `package-lock.json` | Legacy npm lockfile (sostituito da `bun.lockb`) |
-| `opencode-quota/` | Usage data generated by opencode at runtime |
+| `bun.lock` | Generated by bun, machine-specific |
+| `package-lock.json` | Legacy npm lockfile |
+| `opencode-quota/` | Runtime usage data generated by opencode |
