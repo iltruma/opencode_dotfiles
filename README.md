@@ -26,7 +26,6 @@ My personal [opencode](https://opencode.ai) configuration, synced across machine
 | [grep.app](https://grep.app) | remote | Code search across public GitHub repos |
 | [sequential-thinking](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking) | local | Structured reasoning |
 | [codemem](https://github.com/kunickiaj/codemem) | local | Persistent memory across sessions — **managed via plugin** (`@codemem/opencode-plugin`), non come MCP server separato |
-| [playwright](https://github.com/microsoft/playwright-mcp) | local | Browser automation (disabled by default) |
 
 ## Plugins
 
@@ -66,7 +65,6 @@ rm ~/.codemem/viewer.pid
 ```bash
 # Node-based (via bun)
 bun install -g mcp-server-sequential-thinking
-bun install -g @playwright/mcp  # installs the 'playwright-mcp' binary
 bun install -g codemem@0.22.4   # required by @codemem/opencode-plugin
 ```
 
