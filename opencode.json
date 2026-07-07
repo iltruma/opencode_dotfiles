@@ -10,58 +10,31 @@
     "~/.config/opencode/rules.md"
   ],
   "agent": {
-    "build": {
-      "disable": true
-    },
-    "plan": {
-      "disable": true
-    },
-    "general": {
-      "disable": true
-    },
-    "explore": {
-      "disable": true
-    }
+    "build": { "disable": true },
+    "plan": { "disable": true },
+    "general": { "disable": true },
+    "explore": { "disable": true }
   },
   "mcp": {
     "context7": {
       "type": "remote",
-      "url": "https://mcp.context7.com/mcp",
-      "enabled": true
+      "url": "https://mcp.context7.com/mcp"
     },
     "sequential-thinking": {
       "type": "local",
       "command": [
-        "mcp-server-sequential-thinking"
-      ],
-      "enabled": true
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
     },
     "exa": {
       "type": "remote",
-      "url": "https://mcp.exa.ai/mcp",
-      "enabled": true
-    },
-    "playwright": {
-      "type": "local",
-      "command": [
-        "playwright-mcp",
-        "--headless"
-      ],
-      "enabled": false
+      "url": "https://mcp.exa.ai/mcp"
     },
     "grep_app": {
       "type": "remote",
-      "url": "https://mcp.grep.app",
-      "enabled": true
-    },
-    "codemem": {
-      "type": "local",
-      "command": [
-        "npx",
-        "codemem",
-        "mcp"
-      ],
-      "enabled": true
+      "url": "https://mcp.grep.app"
     }
   },
   "tool_output": {
