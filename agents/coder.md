@@ -9,6 +9,7 @@ permission:
   grep: "allow"
   list: "allow"
   read: "allow"
+  websearch: "allow"
   external_directory:
     "**/.env": "deny"
     "**/.env.*": "deny"

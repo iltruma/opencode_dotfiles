@@ -76,6 +76,10 @@ provider, include its ID in `enabled_providers` too.
 `"snapshot": false` disables file snapshot tracking (reduces I/O overhead).
 Re-enable if you need the undo-snapshot feature.
 
+`"lsp": true` enables Language Server Protocol integration for code navigation.
+`"autoupdate": false` prevents automatic updates (controlled updates only).
+`"compaction.auto": true` automatically compacts long sessions to save context window.
+
 #### Option A — opencode Go (personal machine)
 
 Run the `/connect` command inside the opencode TUI, select **OpenCode Go**,

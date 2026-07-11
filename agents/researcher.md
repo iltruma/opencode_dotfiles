@@ -12,6 +12,7 @@ permission:
   list: "allow"
   edit: "ask"
   webfetch: "allow"
+  websearch: "allow"
   task:
     "*": "ask"
     "architect": "allow"

@@ -159,6 +159,7 @@ permission:
     "coder": "allow"
     "documenter": "allow"
   webfetch: "allow"
+  websearch: "allow"
 ---
 
 Sei l'agente Analyst, un esperto di sistemi, infrastruttura e Site Reliability Engineering (SRE).

@@ -13,7 +13,6 @@ permission:
   edit: deny
   task:
     "*": "deny"
-    "analyst": "allow"
 ---
 
 Sei l'agente Architect, specializzato in ricerca tecnica e pianificazione.
