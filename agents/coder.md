@@ -1,7 +1,8 @@
 ---
 description: "Modalità Sviluppo: Scrittura codice applicativo e file di configurazione"
-mode: primary
+mode: all
 color: success
+temperature: 0.2
 permission:
   edit: "allow"
   glob: "allow"

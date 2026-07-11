@@ -2,6 +2,7 @@
 description: "Code review senior: bug, edge case, manutenibilità, performance, security. Read-only: analizza senza modificare, output = lista azionabile per @coder."
 mode: subagent
 color: warning
+temperature: 0.1
 permission:
   read: allow
   glob: allow

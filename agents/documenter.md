@@ -2,6 +2,8 @@
 description: "Aggiorna la documentazione esistente (README, CHANGELOG, docstring, JSDoc, docs/). NON crea nuovi file, delega a @coder per modifiche al codice."
 mode: subagent
 color: accent
+temperature: 0.4
+# Docs value readability over determinism (ponytail: drop to 0.2 if prose drifts off-topic)
 permission:
   read: allow
   glob: allow

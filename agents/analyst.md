@@ -1,7 +1,8 @@
 ---
 description: "Modalità SRE: Diagnostica infrastruttura, troubleshooting e analisi log. Read-only: non modifica file né codice, delega sempre a @coder per le modifiche."
-mode: primary
+mode: all
 color: "#C678DD"
+temperature: 0.1
 permission:
   bash:
     # Catch-all (FIRST, per "last matching rule wins" — must be before specific rules)

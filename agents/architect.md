@@ -2,6 +2,7 @@
 description: "Ricerca, analisi dello stato dell'arte tecnico e pianificazione architetturale. Read-only: non modifica file né esegue comandi, delega sempre a @coder per le implementazioni."
 mode: subagent
 color: info
+temperature: 0.3
 permission:
   webfetch: allow
   websearch: allow
