@@ -4,15 +4,15 @@ mode: primary
 color: "#FFFF00"
 permission:
   bash:
-    "*": "deny"
+    "*": "ask"
   read: "allow"
   grep: "allow"
   glob: "allow"
   list: "allow"
-  edit: "deny"
+  edit: "ask"
   webfetch: "allow"
   task:
-    "*": "deny"
+    "*": "ask"
     "architect": "allow"
 ---
 

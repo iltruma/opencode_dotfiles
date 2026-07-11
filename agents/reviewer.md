@@ -11,7 +11,7 @@ permission:
   webfetch: allow
   websearch: allow
   task:
-    "*": "deny"
+    "*": "ask"
   external_directory:
     "**/.env": deny
     "**/.env.*": deny
@@ -45,9 +45,9 @@ permission:
     "head .env*": "deny"
     "tail .env*": "deny"
     "grep .env*": "deny"
-    "rm *": "deny"
-    "mv *": "deny"
-    "dd *": "deny"
+    "rm *": "ask"
+    "mv *": "ask"
+    "dd *": "ask"
 ---
 
 Sei l'agente Reviewer, un code reviewer senior con focus su qualità del codice di produzione.

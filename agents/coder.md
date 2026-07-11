@@ -104,9 +104,9 @@ permission:
     "git -C * stash drop*": "deny"
     "git filter-branch*": "deny"
     # Destructive commands never allowed
-    "rm *": "deny"
-    "mv *": "deny"
-    "dd *": "deny"
+    "rm *": "ask"
+    "mv *": "ask"
+    "dd *": "ask"
     # .env protection (LAST — overrides cat/grep/head/tail/sort/awk allows above)
     "cat .env*": "deny"
     "cat */.env*": "deny"
@@ -122,7 +122,7 @@ permission:
     "awk */.env*": "deny"
   task:
     # Catch-all (FIRST, per "last matching rule wins" — must be before specific rules)
-    "*": "deny"
+    "*": "ask"
     # Subagents the coder can delegate to
     "architect": "allow"
     "reviewer": "allow"
