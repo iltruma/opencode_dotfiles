@@ -10,7 +10,7 @@ permission:
   webfetch: allow
   websearch: allow
   task:
-    "*": "deny"
+    "*": "ask"
   edit:
     # Catch-all deny FIRST (last matching rule wins)
     "*": "deny"
