@@ -18,7 +18,7 @@ permission:
     "**/.env": deny
     "**/.env.*": deny
     "**/.envrc": deny
-    "*": ask
+    "*": allow
   bash:
     "*": "ask"
     "git status*": "allow"
@@ -29,7 +29,6 @@ permission:
     "ls *": "allow"
     "ls": "allow"
     "cat *": "allow"
-    "cat": "allow"
     "head *": "allow"
     "tail *": "allow"
     "grep *": "allow"
@@ -42,6 +41,7 @@ permission:
     "which *": "allow"
     "pwd": "allow"
     "stat *": "allow"
+    # .env protection (LAST)
     "cat .env*": "deny"
     "cat */.env*": "deny"
     "head .env*": "deny"
@@ -50,9 +50,10 @@ permission:
     "tail */.env*": "deny"
     "grep .env*": "deny"
     "grep */.env*": "deny"
-    "rm *": "ask"
-    "mv *": "ask"
-    "dd *": "ask"
+    # Destructive — never for a read-only agent
+    "rm *": "deny"
+    "mv *": "deny"
+    "dd *": "deny"
 ---
 
 Sei l'agente Reviewer, un code reviewer senior con focus su qualità del codice di produzione.

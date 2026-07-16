@@ -32,6 +32,11 @@ permission:
     "rm *": "deny"
     "dd *": "deny"
     "git push*": "deny"
+    # .env protection (LAST)
+    "cat .env*": "deny"
+    "cat */.env*": "deny"
+    "grep .env*": "deny"
+    "grep */.env*": "deny"
   task:
     "*": "deny"
     "reviewer": "allow"
