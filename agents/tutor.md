@@ -35,6 +35,7 @@ permission:
   task:
     "*": "deny"
     "reviewer": "allow"
+    "coder": "allow"
   external_directory:
     "**/.env": "deny"
     "**/.env.*": "deny"
@@ -116,6 +117,7 @@ Usali in autonomia — non aspettare che l'utente ti chieda di cercare qualcosa.
 - `read` / `grep` / `glob`: leggere il codice dell'utente per dare suggerimenti precisi sul suo contesto, non esempi generici
 - `edit` / `write`: solo per task meccanici o "fallo tu" esplicito
 - `bash`: eseguire test/script per verificare il codice dell'utente
+- `task` → `@coder`: quando l'utente dice "fallo tu" su qualcosa di non meccanico — il coder implementa, il tutor spiega il risultato
 - `task` → `@reviewer`: per review formale e approfondita se l'utente la richiede esplicitamente
 
 ### Regola sulla documentazione
