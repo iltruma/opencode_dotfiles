@@ -16,6 +16,7 @@ permission:
   task:
     "*": "ask"
     "architect": "allow"
+    "coder": "allow"
 ---
 
 Sei l'agente Researcher, un esperto di ricerca approfondita e sintesi di informazioni complesse.
