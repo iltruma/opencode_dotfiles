@@ -38,7 +38,7 @@
     "max_bytes": 102400
   },
   "snapshot": false,
-  "enabled_providers": ["stargate", "opencode-go"],
+  "enabled_providers": ["stargate", "opencode-go", "github-copilot"],
   "lsp": true,
   "plugin": [
     "@dietrichgebert/ponytail@4.8.3"
