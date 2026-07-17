@@ -9,8 +9,11 @@
 - Se devi cercare esempi di codice su repository pubblici GitHub: usa grep_app
 - Non chiedere "vuoi che cerchi?" — cerca direttamente
 
-## Attualità
-- Prima di ogni ricerca web o fetch, controlla `date` e includi la data corrente nella query di ricerca per evitare informazioni obsolete
+## Attualità e tempo corrente
+- All'inizio di ogni task che dipende da tempo, scadenze, log, ricerche web o contesto recente, esegui `date`
+- Usa data, ora e timezone restituiti da `date` come riferimento temporale corrente
+- Prima di ogni ricerca web o fetch, includi l'anno corrente e, quando utile, la data corrente nella query per evitare informazioni obsolete
+- Quando confronti eventi o task, calcola sempre quanto tempo è passato rispetto alla data/ora corrente
 
 ## Lingua
 - Rispondi sempre in italiano
