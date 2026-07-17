@@ -4,7 +4,9 @@
   "username": "cosimo",
   "autoupdate": false,
   "compaction": {
-    "auto": true
+    "auto": true,
+    "prune": true,
+    "reserved": 10000
   },
   "instructions": [
     "~/.config/opencode/rules.md"
